@@ -5,6 +5,28 @@
  * license: MIT
  * https://sensortower.github.io/daterangepicker
  */
+
+(function(factory) {
+	var jQuery, ko, moment;
+	if (typeof define === 'function' && define.amd) {
+		define(['jquery', 'moment', 'knockout'], factory);
+	} else if (typeof exports !== 'undefined') {
+		try {
+			jQuery = require('jquery');
+		} catch (_error) {}
+		try {
+			moment = require('moment');
+		} catch (_error) {}
+		try {
+			ko = require('knockout');
+		} catch (_error) {}
+		factory(jQuery, moment, ko);
+	} else {
+		factory(jQuery, moment, ko);
+	}
+})(function($, moment, ko) {
+
+
 (function() {
   var AllTimeDateRange, ArrayUtils, CalendarHeaderView, CalendarView, Config, CustomDateRange, DateRange, DateRangePickerView, MomentIterator, MomentUtil, Period,
     extend = function(child, parent) { for (var key in parent) { if (hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },
@@ -1205,3 +1227,5 @@
   });
 
 }).call(this);
+
+});
